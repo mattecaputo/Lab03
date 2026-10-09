@@ -1,4 +1,4 @@
-class prestito:
+class Prestito:
     def __init__(self,id_prestito,data_prestito,id_strumento,cognome):
         self.id_prestito = id_prestito
         self.data_prestito = data_prestito
