@@ -7,7 +7,7 @@ class Strumento:
         self.valore = float(valore)
 
     def __str__(self):
-        return f" [{self.id_strumento}] {self.tipo} {self.marca} ( Anno: {self.anno_acquisto} ) ( Valore: {self.valore.2f} )"
+        return f" [{self.id_strumento}] {self.tipo} {self.marca} ( Anno: {self.anno_acquisto} ), ( Valore: {self.valore:.2f} )"
 
     def __repr__(self):
         return self.__str__()
