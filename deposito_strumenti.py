@@ -10,6 +10,19 @@ class DepositoStrumenti:
         """Inizializza gli attributi e le strutture dati"""
         self.nome = nome
         self.responsabile = responsabile
+        self.strumenti = {}
+        self.prestiti = {}
+
+    @property
+    def responsabile(self):
+        return self.responsabile
+
+    @responsabile.setter
+    def responsabile(self, nuovo_responsabile):
+        self.responsabile = nuovo_responsabile
+
+
+
 
     def carica_file_strumenti(self, file_path):
         """Carica gli strumenti dal file"""
