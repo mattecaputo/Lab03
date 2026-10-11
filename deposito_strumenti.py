@@ -56,7 +56,27 @@ class DepositoStrumenti:
     def strumenti_ordinati_per_marca(self):
         """Ordina gli strumenti per marca in ordine alfabetico"""
         return sorted(self.strumenti.values(), key=attrgetter('marca'))
+
+
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
         """Crea un nuovo prestito"""
+        if id_strumento not in self.strumenti:
+            raise Exception(f" Lo strumento '{id_strumento}' non è stato trovato nel deposito")
+
+        for prestito in self.prestiti.values():
+            if prestito.id_strumento == id_strumento:
+                raise Exception(f" Lo strumento '{id_strumento}' è già attualmente in prestito")
+
+        self._counter_prestiti += 1
+        id_prestito = f'P{self._counter_prestiti}'
+
+        prestito = Prestito(id_prestito, data, id_strumento, cognome_allievo)
+        self.prestiti[id_prestito] = prestito
+        return prestito
+
 
     def termina_prestito(self, id_prestito):
+        if id_prestito not in self.prestiti:
+            raise Exception(f" Il prestito con codice '{id_prestito}' non esiste")
+
+        self.prestiti.pop(id_prestito)
