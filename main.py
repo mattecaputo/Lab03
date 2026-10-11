@@ -1,6 +1,5 @@
 from deposito_strumenti import DepositoStrumenti
 from datetime import datetime
-
 def menu():
     print("\n--- MENU DEPOSITO STRUMENTI ---")
     print("1. Modifica nome del responsabile del deposito")
@@ -20,10 +19,10 @@ def main():
 
         if scelta == "1":
 
-            print ( f" Responsabile attuale: {deposito.responsabile}")
+            print ( f"Responsabile attuale: {deposito.responsabile}")
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ").strip()
             deposito.responsabile = nuovo_responsabile
-            print (f" Responsabile aggiornato con successo a {deposito.responsabile}")
+            print (f"Responsabile aggiornato con successo a {deposito.responsabile}")
 
 
         elif scelta == "2":
