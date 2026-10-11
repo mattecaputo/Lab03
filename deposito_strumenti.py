@@ -46,10 +46,16 @@ class DepositoStrumenti:
 
     def aggiungi_strumento(self, tipo, marca, anno_acquisto, valore):
         """Aggiunge uno strumento nel deposito: aggiunge solo nel sistema e non aggiorna il file"""
+        self._counter_strumenti += 1
+        id_nuovo = f'S{self._counter_strumenti}'
+
+        nuovo_strumento = Strumento(id_nuovo, tipo, marca, anno_acquisto, valore)
+        self.strumenti[id_nuovo] = nuovo_strumento
+        return nuovo_strumento
 
     def strumenti_ordinati_per_marca(self):
         """Ordina gli strumenti per marca in ordine alfabetico"""
-
+        return sorted(self.strumenti.values(), key=attrgetter('marca'))
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
         """Crea un nuovo prestito"""
 
