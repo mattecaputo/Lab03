@@ -21,7 +21,7 @@ def main():
 
             print ( f"Responsabile attuale: {deposito.responsabile}")
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ").strip()
-            deposito.responsabile = nuovo_responsabile
+            deposito.responsabile = nuovo_responsabile          #modifica il responsabile
             print (f"Responsabile aggiornato con successo a {deposito.responsabile}")
 
 
